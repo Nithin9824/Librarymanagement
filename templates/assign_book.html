@@ -1,0 +1,49 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+<form action="getstudent" method="post">
+    {% csrf_token %}
+    <table align="center">
+        <tr>
+            <td>Student Phno.</td>
+            <td><input type="number"name="txtPhno"> </td>
+        </tr>
+        <tr>
+            <td><input type="submit"name="sbtbtn" value="Get data"></td>
+        </tr>
+    </table>
+</form>
+<form action="asgnbook" method="post">
+    {% csrf_token %}
+    <table align="center">
+    <tr>
+        <td>Student Name</td>
+        <td><input type="text" name="txtName" value="{{ data.Stud_Name }}"></td>
+    </tr>
+        <tr>
+            <td>Book Name</td>
+            <td>
+            <select name="ddlBook">
+                    {% for i in Book_Data %}
+                        <option>{{ i.Book_Name }}</option>
+                    {% endfor %}
+            </select>
+            </td>
+        </tr>
+        <tr>
+            <td>Start Date</td>
+            <td><input type="date"name="txtstartdate"></td>
+            <td><input type="text"name="txtstartdate" disabled></td>
+        </tr>
+        <tr>
+            <td>End Date</td>
+            <td><input type="date"name="txtenddate"></td>
+            <td><input type="text"name="txtenddate" disabled></td>
+        </tr>
+        <tr>
+            <td><input type="submit"name="sbtbtn" value="Submit"></td>
+        </tr>
+    </table>
+</form>
+
+{% endblock %}

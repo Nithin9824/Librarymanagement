@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student registration page</title>
+</head>
+<body>
+<form action="studentdata" method="post">
+  {% csrf_token %}
+  <table align="center">
+        <tr>
+            <td>name</td>
+            <td> <input type="text" name="txtName"></td>
+        </tr>
+        <tr>
+            <td>Phno</td>
+            <td> <input type="number" name="txtPhno"></td>
+        </tr>
+        <tr>
+            <td>Sem</td>
+            <td> <input type="text" name="txtSem"></td>
+        </tr>
+        <tr>
+        <tr>
+            <td>Password</td>
+            <td> <input type="password" name="txtPassword"></td>
+        </tr>
+        <tr>
+            <td>Course:</td>
+            <td>
+                <select name="ddlCourse">
+                    {% for i in Course_Data %}
+                        <option>{{ i.Course_Name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+        </tr>
+        <tr>
+        <tr>
+            <td>
+                <input type="submit" name="btnsub" value="Register">
+            </td>
+        </tr>
+  </table>
+</form>
+</body>
+</html>

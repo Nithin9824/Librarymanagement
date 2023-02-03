@@ -1,0 +1,42 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+  <form  method="post">
+    {% csrf_token %}
+    <table align="center">
+
+      <tr>
+            <td>Student Name</td>
+            <td>
+                <select name="ddlStudentname">
+                    {% for i in student_data %}
+                        <option>{{ i.Stud_Name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+      </tr>
+      <tr>
+            <td>Books:</td>
+            <td>
+                <select name="ddlBook">
+                    {% for i in Book_Data %}
+                        <option>{{ i.Book_Name }}</option>
+                    {% endfor %}
+                </select>
+            </td>
+      </tr>
+      <tr>
+        <td>Sart date</td>
+        <td><input type="text" name="txtStartDate" value="{{ data.Start_Date }}"></td>
+      </tr>
+      <tr>
+        <td>Author Name</td>
+        <td><input type="text" name="txtEndDate" value="{{ data.End_Date }}"></td>
+      </tr>
+        <tr>
+            <td><input type="submit" name="btn" value="update"></td>
+        </tr>
+    </table>
+  </form>
+
+{% endblock %}
